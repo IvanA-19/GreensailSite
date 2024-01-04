@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}{{teacher.bio}}{% endblock %}
+
+{% block page_header %}
+    <h1>
+        <a style="color: darkblue;" href="{% url 'main:teachers' %}">Педагоги Зеленого паруса</a>
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="teacher">
+        <img src="{{ teacher.photo.url }}" alt="{{teacher.photo}}_photo"
+        width="250px" height="350px" class="teacher_photo" align="left">
+        <h2>
+            {{teacher.bio}}
+        </h2>
+        <p>
+            {{teacher.about|linebreaks}}
+        </p>
+    </div>
+    <link rel="stylesheet" href="{% static 'main/css/teachers.css' %}">
+{% endblock %}

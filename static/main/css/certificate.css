@@ -1,0 +1,14 @@
+.certificate p{
+    font-family: Georgia;
+    font-size: 16pt;
+}
+
+.certificate .b{
+    font-size: 18pt;
+}
+
+.certificate h2{
+    font-family: Georgia;
+    color: darkblue;
+    font-weight: 550;
+}

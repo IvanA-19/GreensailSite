@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Педагоги{% endblock %}
+
+{% block page_header %}
+    <h1>Педагоги Зеленого паруса</h1>
+{% endblock %}
+
+{% block content %}
+    <ul class="teachers">
+        {% for teacher, about in teachers %}
+            <li>
+                <div class="teacher_1">
+                    <img  class="teacher_photo" src="{{teacher.photo.url}}" alt="{{teacher.bio}}_photo"
+                        width="210px" height="300px" align="left" style="margin-right: 20px;">
+                        <h3>{{teacher.bio}}</h3>
+                        <p>{{about|linebreaks}}</p>
+                        <a href="{% url 'main:teacher' teacher.id %}" class="btn btn-lg btn-success">
+                            Читать полностью</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <link rel="stylesheet" href="{% static 'main/css/teachers.css' %}">
+{% endblock %}

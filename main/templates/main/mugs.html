@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block page_header %}
+    <h1>Кружки в Зеленом парусе</h1>
+{% endblock %}
+
+{% block content %}
+    <ul class="mugs">
+        {% for mug, description in mugs %}
+            <li>
+                <div class="mug_1">
+                    <img  class="mug_preview" src="{{mug.preview.url}}" alt="{{mug.title}}_photo"
+                    width="210px" height="270px" align="left" style="margin-right: 20px;">
+                    <h1>{{mug.title|linebreaks}}</h1>
+                    <h3>Педагог: <a href="{% url 'main:teacher' mug.teacher.id %}"
+                        target="_blank">{{mug.teacher}}</a></h3>
+                    <p>
+                        {{description}}
+                    </p>
+                    <a href="{% url 'main:mug' mug.id %}" class="btn btn-lg btn-success" style="margin:5px;">
+                            Читать полностью</a>
+                    <a href="{{mug.link_for_recording}}" class="btn btn-lg btn-primary" style="margin:5px;">
+                            Записаться</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <link rel="stylesheet" href="{% static 'main/css/mugs.css' %}">
+{% endblock %}

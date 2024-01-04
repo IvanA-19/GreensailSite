@@ -1,0 +1,19 @@
+.history ul li{
+    font-size: 15pt;
+    font-family: Georgia;
+    font-weight: 550;
+}
+
+.history p{
+    font-family: Georgia;
+    font-size: 16pt;
+}
+
+.history h3{
+    color: darkblue;
+}
+
+.history h2{
+    font-size: 28pt;
+    font-style: italic;
+}

@@ -1,0 +1,96 @@
+{% load django_bootstrap5 %}
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    <link rel="icon" href="{% static 'main/images/icon/icon.png' %}">
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'main:index' %}" style="font-size: 24pt">
+                    <img src="{% static 'main/images/logo/logo.png' %}" alt="logo"
+                    class="nav-logo" width="70px" height="70px" style="border-radius: 50%">
+                     Главная</a>
+                <ul class="navbar-nav mr-auto" style="font-size: 14pt;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:news' %}">Новости</a>
+                    </li>
+                </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 14pt">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Общие сведения
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'main:history' %}">История</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:teachers' %}">Педагоги</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Родителям
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'main:mugs' %}">Кружки</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:certificate' %}">О сертификате</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Детям
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Конкурсы</a></li>
+                                <li><a class="dropdown-item" href="#">Мастер-классы</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-auto" style="font-size: 14pt">
+                        {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                                <span class="navbar-text"><strong>Здравствуйте, {{ user.username }}!</strong></span>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'admin:index' %}">Управление</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'users:logout' %}">Выйти</a>
+                                </li>
+                            {% endif %}
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main" class="container">
+            <div class="base">
+                <div class="header pb-2 mb-2 border-bottom">
+                    {% block page_header %}{% endblock %}
+                </div>
+                <div class="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </main>
+
+        <div class="btn-up btn-up_hide"></div>
+        <script src="{% static 'main/js/base.js' %}"></script>
+    </body>
+</html>

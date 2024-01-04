@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block page_header %}
+    <h1>Новости. Зеленый парус</h1>
+{% endblock %}
+
+{% block content %}
+    {% for id, hash, owner, post_id in post_params %}
+        <div id="{{id}}" style="margin-bottom: 20px;"></div>
+        <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+        <script type="text/javascript" async>
+            (function() {
+                VK.Widgets.Post("{{id}}", '{{owner}}', '{{post_id}}', '{{hash}}');
+            }());
+        </script>
+    {% endfor %}
+{% endblock %}

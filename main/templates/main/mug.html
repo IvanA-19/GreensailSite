@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}{{teacher.bio}}{% endblock %}
+
+{% block page_header %}
+    <h1>
+        <a style="color: darkblue;" href="{% url 'main:mugs' %}">Кружки в Зеленом парусе</a>
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="mug">
+        <h2>
+            {{mug.title}}
+        </h2>
+        <h3>
+            Преподаватель: <a href="{% url 'main:teacher' mug.teacher.id %}">{{mug.teacher}}</a>
+        </h3>
+        <h3>Фото с кружка: </h3>
+        {% for obj in mug_photos %}
+            <p>{{photo.url}}</p>
+            <img src="{{obj.photo.url}}" style="margin: 10px;" width=250px height=350px>
+        {% empty %}
+            <p>На данный момент не размещено фотографий с данного кружка</p>
+        {% endfor %}<br>
+        <p>
+            <h3>О кружке: </h3>
+            {{mug.description|linebreaks}}
+        </p>
+        <a href="{{mug.link_for_recording}}" class="btn btn-lg btn-primary" style="margin:5px; margin-left: 0;
+            font-size: 18pt;">Записаться</a>
+    </div>
+    <link rel="stylesheet" href="{% static 'main/css/mugs.css' %}">
+{% endblock %}
