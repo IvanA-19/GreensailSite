@@ -73,9 +73,42 @@ def mug(request, mug_id):
 def certificate(request):
     return render(request, 'main/certificate.html')
 
+
 def teacher(request, teacher_id):
     current_teacher = Teacher.objects.get(id=teacher_id)
 
     context = {'teacher': current_teacher}
 
     return render(request, 'main/teacher.html', context)
+
+
+def masterclasses(request):
+    all_masterclasses = Masterclasses.objects.order_by('title')
+
+    context = {'masterclasses': all_masterclasses}
+
+    return render(request, 'main/masterclasses.html', context)
+
+
+def masterclass(request, masterclass_id):
+    current_masterclass = Masterclasses.objects.get(id=masterclass_id)
+
+    context = {'masterclass': current_masterclass}
+
+    return render(request, 'main/masterclass', context)
+
+
+def contests(request):
+    all_contests = Contests.objects.order_by('title')
+
+    context = {'contests': all_contests}
+
+    return render(request, 'main/contests.html', context)
+
+
+def contest(request, contest_id):
+    current_contest = Contests.objects.get(id=contest_id)
+
+    context = {'contest': current_contest}
+
+    return render(request, 'main/contest', context)
