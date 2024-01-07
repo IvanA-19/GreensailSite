@@ -5,8 +5,32 @@
 
 {% block title %}Конкурсы{% endblock %}
 
-{% block page_header %}{% endblock %}
+{% block page_header %}
+    <h1>Конкурсы</h1>
+{% endblock %}
 
 {% block content %}
-
+    <div class="contests">
+        <h2>Актуальные мастер-классы</h2>
+        <ul class=actual_contests">
+            {% for contest, description in masterclasses %}
+                <li>
+                    <div class="contest">
+                        <h3><img src="{{contest.photo.url}}" alt="{{contest}}" width="285px"
+                             height="265px" align="left" style="margin-top: 0; margin-right: 10px">
+                             {{contest}}</h3>
+                        <p>{{description|linebreaks}}</p>
+                        <a href="{% url 'main:contests' contest.id %}" class="btn btn-success btn-lg"
+                        style="margin: 5px">
+                            Читать полностью</a>
+                        <a href="{{contest.link}}" target="_blank" class="btn btn-lg btn-primary"
+                           style="margin: 5px">Записаться</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li><h3 style="font-weight: bold; text-align: center;">На данный момент нет актуальных конкурсов</h3></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <link rel="stylesheet" href="{% static 'main/css/for_kids.css' %}">
 {% endblock %}

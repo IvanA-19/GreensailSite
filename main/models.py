@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 
@@ -9,7 +10,7 @@ class Teacher(models.Model):
     patronymic = models.CharField(verbose_name='Отчество', max_length=250)
     bio = models.CharField(verbose_name='ФИО', max_length=250)
     about = models.TextField(verbose_name='О педагоге')
-    photo = models.ImageField(upload_to='media/')
+    photo = models.ImageField(upload_to='media/', verbose_name='Фото')
 
     class Meta:
         verbose_name = 'Педагог'
@@ -48,9 +49,12 @@ class Contests(models.Model):
     link = models.CharField(max_length=250, verbose_name='Ссылка на форму')
     photo = models.ImageField(verbose_name='Фото', upload_to='media/', null=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
-        verbose_name = 'Конкурсы'
-        verbose_name_plural = 'Конкурс'
+        verbose_name = 'Конкурс'
+        verbose_name_plural = 'Конкурсы'
 
 
 class Masterclasses(models.Model):
@@ -59,6 +63,9 @@ class Masterclasses(models.Model):
     link = models.CharField(max_length=250, verbose_name='Ссылка на форму')
     photo = models.ImageField(verbose_name='Фото', upload_to='media/', null=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
-        verbose_name = 'Мастер-классы'
-        verbose_name_plural = 'Мастер-класс'
+        verbose_name = 'Мастер-класс'
+        verbose_name_plural = 'Мастер-классы'

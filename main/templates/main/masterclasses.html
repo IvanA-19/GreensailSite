@@ -5,8 +5,37 @@
 
 {% block title %}Мастер-классы{% endblock %}
 
-{% block page_header %}{% endblock %}
+{% block page_header %}
+    <h1>Мастер-классы</h1>
+{% endblock %}
 
 {% block content %}
+    <div class="masterclasses">
+        <h2>Актуальные мастер-классы</h2>
+        <ul class=actual_masterclasses">
+            {% for masterclass, description in masterclasses %}
+                <li>
+                    <div class="masterclass">
+                        <h3><img src="{{masterclass.photo.url}}" alt="{{masterclass}}" width="285px"
+                             height="265px" align="left" style="margin-top: 0; margin-right: 10px">
+                             {{masterclass}}</h3>
+                        <p>{{description|linebreaks}}</p>
+                        <a href="{% url 'main:masterclass' masterclass.id %}"class="btn btn-success btn-lg"
+                        style="margin: 5px">
+                            Читать полностью</a>
+                        <a href="{{masterclass.link}}" target="_blank" class="btn btn-lg btn-primary"
+                           style="margin: 5px">Записаться</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li><h3 style="font-weight: bold; text-align: center;">На данный момент нет актуальных мастер-классов</h3></li>
+            {% endfor %}
+        </ul>
 
+        <h2>Библиотека мастер-классов</h2>
+        <div class="library">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=-HuV3DFJqeUvVP4D&amp;list=PLpWuJ77w2ApIFnr3JhUyQrW-jBWM0r28Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    <link rel="stylesheet" href="{% static 'main/css/for_kids.css' %}">
 {% endblock %}

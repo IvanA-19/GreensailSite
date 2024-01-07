@@ -1,0 +1,8 @@
+#header{
+    background-color: #00FA9A;
+    color: black;
+}
+
+#site-name a:link, a:visited{
+    color: var(--body-loud-color);
+}

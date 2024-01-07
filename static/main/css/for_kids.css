@@ -1,0 +1,106 @@
+.masterclasses ul{
+    list-style-type: none;
+}
+
+.masterclass p{
+    font-size: 16pt;
+}
+
+.masterclasses h2{
+    font-style: italic;
+    font-weight: 550;
+    color: darkblue;
+    text-align: center;
+}
+
+.masterclass h3{
+    font-style: italic;
+    font-weight: 550;
+}
+
+.masterclasses{
+    margin-top: 20px;
+    width: 100%;
+    font-family: Georgia;
+}
+
+.masterclass{
+    margin: 15px 0 20px;
+    background-color: #ADD8E6;
+    min-height: 300px;
+    padding: 10px;
+}
+
+.current_masterclass{
+    font-family: Georgia;
+}
+
+.current_masterclass h3{
+    font-weight: bold;
+    font-size: 22pt;
+    font-style: italic;
+}
+
+.current_masterclass p{
+    font-size: 16pt;
+}
+
+.library{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.library iframe{
+    width: 100%;
+    height: 500px;
+}
+
+.contests ul{
+    list-style-type: none;
+}
+
+.contest p{
+    font-size: 16pt;
+}
+
+.contests h2{
+    font-style: italic;
+    font-weight: 550;
+    color: darkblue;
+    text-align: center;
+}
+
+.contests h3{
+    font-style: italic;
+    font-weight: 550;
+}
+
+.contests{
+    margin-top: 20px;
+    width: 100%;
+    font-family: Georgia;
+}
+
+.contest{
+    margin: 15px 0 20px;
+    background-color: #ADD8E6;
+    min-height: 300px;
+    padding: 10px;
+}
+
+.current_contest{
+    font-family: Georgia;
+}
+
+.current_contest h3{
+    font-weight: bold;
+    font-size: 22pt;
+    font-style: italic;
+}
+
+.current_contest p{
+    font-size: 16pt;
+}
+
+

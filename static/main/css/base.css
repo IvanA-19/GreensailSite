@@ -1,3 +1,15 @@
+html {
+  height: 100%;
+}
+
+main {
+  min-height: calc(100vh - 30px - 18px);
+}
+
+footer {
+  height: 300px;
+}
+
 .pb-2 h1{
     color: darkblue;
     font-weight: 500;
@@ -21,14 +33,12 @@ body{
     background: url('../images/background/img_3.png');
     min-height:100%;
     background-size:cover;
+    position: relative;
+    margin: 0;
 }
 
 .navbar{
     opacity: 0.93;
-}
-
-body {
-     min-height: 1200px;
 }
 
 .btn-up {

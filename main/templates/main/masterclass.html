@@ -3,10 +3,22 @@
 {% load django_bootstrap5 %}
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}{{masterclass}}{% endblock %}
 
-{% block page_header %}{% endblock %}
+{% block page_header %}
+    <h1>
+        <a href="{% url 'main:masterclasses' %}" style="color: darkblue">Мастер-классы</a>
+    </h1>
+{% endblock %}
 
 {% block content %}
-
+    <div class="current_masterclass">
+        <img src="{{masterclass.photo.url}}" alt="{{masterclass}}" width="300px"
+             height="300px" align="left" style="margin: 0 10px 10px;">
+        <h3>{{masterclass}}</h3>
+        <p>{{masterclass.description|linebreaks}}</p>
+        <a href="{{masterclass.link}}" target="_blank" class="btn btn-lg btn-primary"
+           style="margin: 5px">Записаться</a>
+    </div>
+    <link rel="stylesheet" href="{% static 'main/css/for_kids.css' %}">
 {% endblock %}

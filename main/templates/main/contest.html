@@ -3,10 +3,22 @@
 {% load django_bootstrap5 %}
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}{{contest}}{% endblock %}
 
-{% block page_header %}{% endblock %}
+{% block page_header %}
+    <h1>
+        <a href="{% url 'main:contests' %}" style="color: darkblue">Конкурсы</a>
+    </h1>
+{% endblock %}
 
 {% block content %}
-
+    <div class="current_contest">
+        <img src="{{contest.photo.url}}" alt="{{contest}}" width="300px"
+             height="300px" align="left" style="margin: 0 10px 10px;">
+        <h3>{{contest}}</h3>
+        <p>{{contest.description|linebreaks}}</p>
+        <a href="{{contest.link}}" target="_blank" class="btn btn-lg btn-primary"
+           style="margin: 5px">Участвовать</a>
+    </div>
+    <link rel="stylesheet" href="{% static 'main/css/for_kids.css' %}">
 {% endblock %}

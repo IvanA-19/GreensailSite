@@ -85,7 +85,10 @@ def teacher(request, teacher_id):
 def masterclasses(request):
     all_masterclasses = Masterclasses.objects.order_by('title')
 
-    context = {'masterclasses': all_masterclasses}
+    description = [f'{curr_masterclass.description[:250]}...' if len(curr_masterclass.description) > 250
+                   else curr_masterclass.description for curr_masterclass in all_masterclasses]
+
+    context = {'masterclasses': zip(all_masterclasses, description)}
 
     return render(request, 'main/masterclasses.html', context)
 
@@ -95,13 +98,16 @@ def masterclass(request, masterclass_id):
 
     context = {'masterclass': current_masterclass}
 
-    return render(request, 'main/masterclass', context)
+    return render(request, 'main/masterclass.html', context)
 
 
 def contests(request):
     all_contests = Contests.objects.order_by('title')
 
-    context = {'contests': all_contests}
+    description = [f'{curr_contest.description[:250]}...' if len(curr_contest.description) > 250
+                   else curr_contest.description for curr_contest in all_contests]
+
+    context = {'masterclasses': zip(all_contests, description)}
 
     return render(request, 'main/contests.html', context)
 
@@ -111,4 +117,4 @@ def contest(request, contest_id):
 
     context = {'contest': current_contest}
 
-    return render(request, 'main/contest', context)
+    return render(request, 'main/contest.html', context)
