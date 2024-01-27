@@ -12,9 +12,15 @@
     <form class="form" action="{% url 'users:login' %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        {% bootstrap_button button_type="submit" content="Войти" %}
+        {% bootstrap_button button_type="submit" content="Войти" button_class="btn-success" %}
 
 
         <input type="hidden" name="next" value="{% url 'main:index' %}" />
     </form>
+    <style>
+        .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+        }
+    </style>
 {% endblock %}

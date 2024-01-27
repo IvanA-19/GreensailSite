@@ -1,19 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@1,6..12,600;1,6..12,700&display=swap');
+
 .history ul li{
     font-size: 15pt;
-    font-family: Georgia;
+    font-family: 'Nunito', sans-serif;
     font-weight: 550;
 }
 
 .history p{
-    font-family: Georgia;
-    font-size: 16pt;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14pt;
 }
 
 .history h3{
-    color: darkblue;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #156641;
 }
 
 .history h2{
+    color: #156641;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
     font-size: 28pt;
     font-style: italic;
 }

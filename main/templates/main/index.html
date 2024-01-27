@@ -4,29 +4,26 @@
 
 {% block title %}Главная{% endblock %}
 
-{% block page_header %}
-    <h1>Главная</h1>
-{% endblock %}
-
 {% block content %}
-    <div class=" location">
-        <h2>
-            Местоположение организации
-        </h2>
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3c3fbae2180fb64af95f63fa2e5172be0538adf347c1da8237ef440e3fb73e27&amp;width=100%25&amp;height=550&amp;lang=ru_RU&amp;scroll=true"></script>
-    </div>
-    <div class="contacts">
-        <h2>Контактные данные:</h2>
-        <p>
-            Адрес: Нижний Новгород, ул.Минина, д.3(этаж цокольный)<br>
-            Тел.: +79049204703<br>
-            Электронная почта:<br>
-            ddt.greensail@gmail.com<br>
-            ddt.greensailnn@gmail.com<br>
-            ВК: <a href="https://vk.com/greensailnn" target="_blank">https://vk.com/greensailnn</a><br>
-            Telegram: <a href="https://t.me/greensail52" target="_blank">t.me/greensail52</a>
-        </p>
-    </div>
+    <ul class="about" style="align-self: center">
+        <li class="contacts">
+            <h2>Контактные данные:</h2>
+            <p>
+                Адрес: Нижний Новгород, ул.Минина, д.3(этаж цокольный)<br>
+                Тел.: +79049204702<br>
+                Электронная почта:<br>
+                ddt.greensail@gmail.com<br>
+                ddt.greensailnn@gmail.com<br>
+                ВК: <a href="https://vk.com/greensailnn" target="_blank">https://vk.com/greensailnn</a><br>
+                Telegram: <a href="https://t.me/greensail52" target="_blank">t.me/greensail52</a>
+            </p>
+
+        </li>
+        <li class="location">
+            <h2>Местоположение</h2>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3c3fbae2180fb64af95f63fa2e5172be0538adf347c1da8237ef440e3fb73e27&amp;source=constructor" width="100%" height="270" frameborder="0"></iframe>
+        </li>
+    </ul>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 

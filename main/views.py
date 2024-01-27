@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import *
 import requests
+from .models import *
 
 
 # Create your views here.
 def index(request):
     return render(request, 'main/index.html')
+
+
+def certificate(request):
+    return render(request, 'main/certificate.html')
 
 
 def news(request):
@@ -27,28 +31,14 @@ def news(request):
         owner_id = []
         post_id = []
         for item in data:
-            _id.append(f'vk_post_{str(item['owner_id'])}_{str(item['id'])}')
+            _id.append(f'vk_post_{str(item["owner_id"])}_{str(item["id"])}')
             post_hash.append(item['hash'])
             owner_id.append(item['owner_id'])
             post_id.append(item['id'])
         return zip(_id, post_hash, owner_id, post_id)
+
     context = {'post_params': parse()}
     return render(request, 'main/news.html', context)
-
-
-def mugs(request):
-    all_mugs = Mugs.objects.order_by('teacher')
-
-    about = [f'{curr_mug.description[:250]}...' if len(curr_mug.description) > 250
-             else curr_mug.description for curr_mug in all_mugs]
-
-    context = {'mugs': zip(all_mugs, about)}
-
-    return render(request, 'main/mugs.html', context)
-
-
-def history(request):
-    return render(request, 'main/history.html')
 
 
 def teachers(request):
@@ -62,24 +52,44 @@ def teachers(request):
     return render(request, 'main/teachers.html', context)
 
 
-def mug(request, mug_id):
-    current_mug = Mugs.objects.get(id=mug_id)
-    mug_photos = MugsPhotos.objects.filter(mug_id=mug_id)
-    context = {'mug': current_mug, 'mug_photos': mug_photos}
-
-    return render(request, 'main/mug.html', context)
-
-
-def certificate(request):
-    return render(request, 'main/certificate.html')
-
-
 def teacher(request, teacher_id):
     current_teacher = Teacher.objects.get(id=teacher_id)
 
     context = {'teacher': current_teacher}
 
     return render(request, 'main/teacher.html', context)
+
+
+def mugs(request):
+    all_mugs = Mugs.objects.order_by('teacher')
+
+    description = [f'{curr_mug.description[:250]}...' if len(curr_mug.description) > 250
+                   else curr_mug.description for curr_mug in all_mugs]
+
+    context = {'mugs': zip(all_mugs, description)}
+
+    return render(request, 'main/mugs.html', context)
+
+
+def mug(request, mug_id):
+    current_mug = Mugs.objects.get(id=mug_id)
+    mug_photos = MugsPhotos.objects.filter(mug_id=mug_id)
+
+    context = {'mug': current_mug, 'mug_photos': mug_photos}
+
+    return render(request, 'main/mug.html', context)
+
+
+def history(request):
+    return render(request, 'main/history.html')
+
+
+def masterclass(request, masterclass_id):
+    current_masterclass = Masterclasses.objects.get(id=masterclass_id)
+
+    context = {'masterclass': current_masterclass}
+
+    return render(request, 'main/masterclass.html', context)
 
 
 def masterclasses(request):
@@ -91,14 +101,6 @@ def masterclasses(request):
     context = {'masterclasses': zip(all_masterclasses, description)}
 
     return render(request, 'main/masterclasses.html', context)
-
-
-def masterclass(request, masterclass_id):
-    current_masterclass = Masterclasses.objects.get(id=masterclass_id)
-
-    context = {'masterclass': current_masterclass}
-
-    return render(request, 'main/masterclass.html', context)
 
 
 def contests(request):
@@ -118,3 +120,19 @@ def contest(request, contest_id):
     context = {'contest': current_contest}
 
     return render(request, 'main/contest.html', context)
+
+
+def events(request):
+    all_events = Event.objects.filter(is_event=True)
+
+    context = {'events': all_events}
+
+    return render(request, 'main/events.html', context)
+
+
+def event(request, event_id):
+    current_event = Event.objects.get(id=event_id)
+
+    context = {'event': current_event}
+
+    return render(request, 'main/event.html', context)

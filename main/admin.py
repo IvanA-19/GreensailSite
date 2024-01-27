@@ -6,8 +6,8 @@ from .models import *
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ['id', 'bio', 'get_html_photo']
     list_display_links = ['id', 'bio']
-    search_fields = ('bio', )
-    readonly_fields = ('get_html_photo', )
+    search_fields = ('bio',)
+    readonly_fields = ('get_html_photo',)
 
     def get_html_photo(self, object):
         return mark_safe(f'<img src="{object.photo.url}", width="50">')
@@ -18,7 +18,8 @@ class TeacherAdmin(admin.ModelAdmin):
 class MugsAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'get_html_preview']
     list_display_links = ['id', 'title']
-    search_fields = ('title', )
+    search_fields = ('title',)
+    readonly_fields = ('get_html_preview',)
 
     def get_html_preview(self, object):
         return mark_safe(f'<img src="{object.preview.url}", width="50">')
@@ -29,7 +30,8 @@ class MugsAdmin(admin.ModelAdmin):
 class ContestsAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'get_html_photo']
     list_display_links = ['id', 'title']
-    search_fields = ('title', )
+    search_fields = ('title',)
+    readonly_fields = ('get_html_photo',)
 
     def get_html_photo(self, object):
         return mark_safe(f'<img src="{object.photo.url}", width="50">')
@@ -40,7 +42,8 @@ class ContestsAdmin(admin.ModelAdmin):
 class MasterclassesAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'get_html_photo']
     list_display_links = ['id', 'title']
-    search_fields = ('title', )
+    search_fields = ('title',)
+    readonly_fields = ('get_html_photo',)
 
     def get_html_photo(self, object):
         return mark_safe(f'<img src="{object.photo.url}", width="50">')
@@ -53,4 +56,6 @@ admin.site.register(Mugs, MugsAdmin)
 admin.site.register(MugsPhotos)
 admin.site.register(Contests, ContestsAdmin)
 admin.site.register(Masterclasses, MasterclassesAdmin)
+
+admin.site.register(Event)
 

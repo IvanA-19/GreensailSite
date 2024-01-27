@@ -16,9 +16,10 @@
     {% bootstrap_javascript %}
 </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+        <nav class="navbar navbar-expand-md navbar-dark mb-4 border">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'main:index' %}" style="font-size: 24pt">
+                <a class="navbar-brand" href="{% url 'main:index' %}" style="font-size: 24pt" onmouseover="this.style.color='#90EE90'"
+                onmouseout="this.style.color='gold'">
                     <img src="{% static 'main/images/logo/logo.png' %}" alt="logo"
                     class="nav-logo" width="70px" height="70px" style="border-radius: 50%">
                      Главная</a>
@@ -27,7 +28,18 @@
                         <a class="nav-link" href="{% url 'main:news' %}">Новости</a>
                     </li>
                 </ul>
+
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto" style="font-size: 14pt;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'main:events' %}">События</a>
+                        </li>
+                    </ul>
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 14pt">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +73,7 @@
                     <ul class="navbar-nav mr-auto" style="font-size: 14pt">
                         {% if user.is_authenticated %}
                             {% if user.is_superuser %}
-                                <span class="navbar-text"><strong>Здравствуйте, {{ user.username }}!</strong></span>
+                                <span class="navbar-text" style="color: mediumspringgreen;"><strong>Здравствуйте, {{ user.username }}!</strong></span>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'admin:index' %}">Управление</a>
                                 </li>

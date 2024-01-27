@@ -1,28 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@1,6..12,600;1,6..12,700&display=swap');
+
 .contacts p{
     font-size: 16pt;
-}
-
-
-.location{
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-family: "Georgia";
-    color: darkblue;
+    text-align: left;
+    font-family: 'Nunito', sans-serif;
 }
 
 .location h2{
+    font-weight: 600;
     text-align: center;
-    font-size: 24pt;
+    font-family: 'Nunito', sans-serif;
 }
 
 .contacts{
-    background-color: #F5FFFA;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    font-family: "Times New Roman";
+    margin-right: 50px;
+    float: left;
 }
 
 .contacts h2{
     text-align: left;
     font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+}
+
+.location{
+    width: auto;
+    min-width: 300px;
+}
+
+.about{
+    list-style-type: none;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #C9F0DD;
+    border: solid darkgreen;
+    padding: 15px;
+}
+
+.about li{
+    display: inline-grid;
 }

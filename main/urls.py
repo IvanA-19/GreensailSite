@@ -19,6 +19,9 @@ urlpatterns = [
     path('contests/<int:contest_id>', views.contest, name='contest'),
     path('masterclasses/', views.masterclasses, name='masterclasses'),
     path('masterclasses/<int:masterclass_id>', views.masterclass, name='masterclass'),
+    path('events/', views.events, name='events'),
+    path('events/<int:event_id>', views.event, name='event'),
+
 
 ]
 

@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@1,6..12,600;1,6..12,700&display=swap');
+
 .certificate p{
-    font-family: Georgia;
-    font-size: 16pt;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14pt;
 }
 
 .certificate .b{
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 .certificate h2{
-    font-family: Georgia;
-    color: darkblue;
+    font-family: 'Nunito', sans-serif;
+    color: #156641;
     font-weight: 550;
 }

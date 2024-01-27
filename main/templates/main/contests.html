@@ -11,7 +11,7 @@
 
 {% block content %}
     <div class="contests">
-        <h2>Актуальные мастер-классы</h2>
+        <h2>Актуальные конкурсы</h2>
         <ul class=actual_contests">
             {% for contest, description in masterclasses %}
                 <li>
@@ -20,9 +20,13 @@
                              height="265px" align="left" style="margin-top: 0; margin-right: 10px">
                              {{contest}}</h3>
                         <p>{{description|linebreaks}}</p>
-                        <a href="{% url 'main:contests' contest.id %}" class="btn btn-success btn-lg"
+                        <a href="{% url 'main:contest' contest.id %}" class="btn btn-success btn-lg"
                         style="margin: 5px">
                             Читать полностью</a>
+                        <a href="{{contest.regulation.url}}" download class="btn btn-lg"
+                                style="background-color: #8A2BE2; color: white;"
+                                onmouseover="this.style.backgroundColor='#9400D3'"
+                                onmouseout="this.style.backgroundColor='#8A2BE2'">Положение</a>
                         <a href="{{contest.link}}" target="_blank" class="btn btn-lg btn-primary"
                            style="margin: 5px">Записаться</a>
                     </div>

@@ -7,7 +7,7 @@
 
 {% block page_header %}
     <h1>
-        <a href="{% url 'main:contests' %}" style="color: darkblue">Конкурсы</a>
+        <a href="{% url 'main:contests' %}" style="color: #156641">Конкурсы</a>
     </h1>
 {% endblock %}
 
@@ -17,7 +17,11 @@
              height="300px" align="left" style="margin: 0 10px 10px;">
         <h3>{{contest}}</h3>
         <p>{{contest.description|linebreaks}}</p>
-        <a href="{{contest.link}}" target="_blank" class="btn btn-lg btn-primary"
+        <a href="{{contest.regulation.url}}" download class="btn btn-lg"
+                                style="background-color: #8A2BE2; color: white;"
+                                onmouseover="this.style.backgroundColor='#9400D3'"
+                                onmouseout="this.style.backgroundColor='#8A2BE2'">Положение</a>
+        <a href="{{contest.link}}" target="_blank" class="btn btn-lg btn-success"
            style="margin: 5px">Участвовать</a>
     </div>
     <link rel="stylesheet" href="{% static 'main/css/for_kids.css' %}">

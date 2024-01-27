@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@1,6..12,700&display=swap');
+
 html {
   height: 100%;
+}
+
+.navbar{
+    background-color: #0C4B33;
+}
+
+.container-fluid .navbar-brand{
+    color: gold;
 }
 
 main {
@@ -11,10 +21,10 @@ footer {
 }
 
 .pb-2 h1{
-    color: darkblue;
-    font-weight: 500;
-    font-size: 34pt;
-    font-family: "Georgia";
+    color: #156641;
+    font-size: 30pt;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
     font-style: italic;
 }
 
@@ -30,11 +40,10 @@ footer {
 }
 
 body{
-    background: url('../images/background/img_3.png');
     min-height:100%;
-    background-size:cover;
     position: relative;
     margin: 0;
+    padding-bottom: 15px;
 }
 
 .navbar{
@@ -43,7 +52,7 @@ body{
 
 .btn-up {
     position: fixed;
-    background-color: #673ab7;
+    background-color: #156641;
     right: 20px;
     bottom: 0;
     border-top-left-radius: 8px;
@@ -71,6 +80,25 @@ body{
 
 @media (hover: hover) and (pointer: fine) {
     .btn-up:hover {
-        background-color: #512da8;
+        background-color: #156632;
     }
+}
+
+
+.dropdown .dropdown-menu {
+    background-color: SeaGreen;
+}
+
+.dropdown-menu li a{
+    color: MintCream;
+    font-size: 12pt;
+}
+
+.navbar-nav li a{
+    color: white;
+    font-size: 14pt;
+}
+
+.content{
+    text-align: justify;
 }
